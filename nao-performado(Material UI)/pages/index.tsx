@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react"
 import { ResultadosPesquisa } from "../components/resultadosPesquisa"
+import { Button, Container, Grid, Stack, TextField, Typography } from "../node_modules/@mui/material/index"
 import Head from "../node_modules/next/head"
 
 
@@ -24,18 +25,25 @@ export default function Home() {
   }
 
   return (
-    <div>
+    <Container maxWidth="lg">
       <Head>
-        <title>Não performado</title>
+        <title>Não performado - Mui</title>
       </Head>
-      <h1>Pesquisar: </h1>
+      <Grid container>
+        <Grid item xs={12} sm={12}>
+          <Typography variant="h6">Pesquisar: </Typography>
+        </Grid>
+        <Grid item xs={12} sm={12}>
+          <form onSubmit={obtemPesquisa}>
+            <Stack direction="row" spacing={2}>
+              <TextField size="small" type="text" value={pesquisa} onChange={e => setPesquisa(e.target.value)}/>
+              <Button variant="contained" type="submit">Buscar</Button>
+            </Stack>
+          </form>
+        </Grid>
 
-      <form onSubmit={obtemPesquisa}>
-        <input type="text" value={pesquisa} onChange={e => setPesquisa(e.target.value)}/>
-        <button type="submit">Buscar</button>
-      </form>
-
-      <ResultadosPesquisa resultados={resultados} listaDeFavoritos={listaDeFavoritos}/>
-    </div>
+        <ResultadosPesquisa resultados={resultados} listaDeFavoritos={listaDeFavoritos}/>
+      </Grid>
+    </Container>
   )
 }
