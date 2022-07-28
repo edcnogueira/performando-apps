@@ -18,7 +18,7 @@ function ItemPorProdutoComponente({ produto, listaDeFavoritos }: ItemPorProdutoP
                 <Typography variiant="p">{produto.titulo} - <strong>{produto.preco}</strong></Typography>
             </Grid>
             <Grid item xs={12} sm={6}>
-                <Button variant="outlined" onClick={() => listaDeFavoritos(produto.id)}>Adicionar aos favoritos</Button>
+                <Button variant="outlined" size="small" onClick={() => listaDeFavoritos(produto.id)}>Adicionar aos favoritos</Button>
             </Grid>
         </Grid>
     )
