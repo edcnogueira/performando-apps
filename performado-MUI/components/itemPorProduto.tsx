@@ -1,4 +1,5 @@
 import { memo } from "react";
+import { Button, Grid, Typography } from "../node_modules/@mui/material/index";
 
 interface ItemPorProdutoProps {
     produto: {
@@ -12,10 +13,14 @@ interface ItemPorProdutoProps {
 
 function ItemPorProdutoComponente({ produto, listaDeFavoritos }: ItemPorProdutoProps){
     return(
-        <div>
-            {produto.titulo} - <strong>{produto.preco}</strong>
-            <button onClick={() => listaDeFavoritos(produto.id)}>Adicionar aos favoritos</button>
-        </div>
+        <Grid container sx={{mt: 1}}>
+            <Grid item xs={12} sm={2}>
+                <Typography variiant="p">{produto.titulo} - <strong>{produto.preco}</strong></Typography>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+                <Button variant="outlined" onClick={() => listaDeFavoritos(produto.id)}>Adicionar aos favoritos</Button>
+            </Grid>
+        </Grid>
     )
 }
 

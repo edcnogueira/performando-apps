@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+import { Grid, Typography } from "../node_modules/@mui/material/index";
 import { ItemPorProduto } from "./itemPorProduto";
 
 interface ResultadosPesquisaProps {
@@ -18,14 +19,18 @@ export function ResultadosPesquisa({resultados, listaDeFavoritos}: ResultadosPes
     }, [resultados])
 
     return(
-        <div>
-            <h2>{precoTotal}</h2>
-            {resultados.map(produto => {
-                return(
-                    <ItemPorProduto key={produto.id} produto={produto} listaDeFavoritos={listaDeFavoritos}/>
-                )
-                })}
-        </div>
+        <Grid container>
+            <Grid item xs={12} sm={12}>
+                <Typography variant="h6">{precoTotal}</Typography>   
+            </Grid>
+            <Grid item xs={12} sm={12}>
+                {resultados.map(produto => {
+                    return(
+                        <ItemPorProduto key={produto.id} produto={produto} listaDeFavoritos={listaDeFavoritos}/>
+                    )
+                    })}
+            </Grid>
+        </Grid>
     )
 }
 
